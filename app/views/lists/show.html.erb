@@ -1,0 +1,14 @@
+<div class="container">
+  <h1><%= @list.name %></h1>
+  <% @list.bookmarks.each do |bookmark| %>
+    <div>
+      <%= bookmark.movie.title %>
+      <%= bookmark.comment %>
+      <%= link_to bookmark_path(bookmark), method: :delete do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+    </div>
+  <% end %>
+  <br>
+  <%= link_to "+Add a bookmark", new_list_bookmark_path(@list) %>
+</div>
