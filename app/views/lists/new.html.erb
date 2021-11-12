@@ -1,5 +1,7 @@
-<%= simple_form_for(@list) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit, class: 'btn btn-primary' %>
-<% end %>
+<div class="container mt-3">
+  <%= simple_form_for(@list) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit class: 'btn btn-primary text-white mt-2' %>
+  <% end %>
+</div>
