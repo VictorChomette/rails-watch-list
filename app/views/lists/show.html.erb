@@ -1,14 +1,22 @@
-<div class="container">
+<div class="banner banner-list" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(@list.photo.key) %>')">
+  <div class="container">
+    <h1 class="text-center"><%= @list.name %></h1>
+    <button class="btn btn-info nb-movies"><%= @list.bookmarks.length %> movies</button>
+  </div>
+</div>
+
+<div class="container mt-2">
   <h1><%= @list.name %></h1>
   <% @list.bookmarks.each do |bookmark| %>
-    <div>
-      <%= bookmark.movie.title %>
-      <%= bookmark.comment %>
+    <div class="d-flex flex-row">
+      <strong><%= bookmark.movie.title %></strong>
+      <p> - </p>
+      <p class="mr-2"><%= bookmark.comment %></p>
       <%= link_to bookmark_path(bookmark), method: :delete do %>
         <i class="fas fa-trash"></i>
       <% end %>
     </div>
   <% end %>
   <br>
-  <%= link_to "+Add a bookmark", new_list_bookmark_path(@list) %>
+  <%= link_to "+ Add a bookmark", new_list_bookmark_path(@list), class:"btn btn-primary mt-3 text-white" %>
 </div>
